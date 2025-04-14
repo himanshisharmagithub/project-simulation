@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Task Scheduling</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Cloud Task Scheduling</h1>
+
+    <form method="POST" action="/schedule">
+        <div id="tasks">
+            <div class="row mb-3 task">
+                <div class="col-md-3">
+                    <input type="text" name="name" class="form-control" placeholder="Task Name" required>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="arrival_time" class="form-control" placeholder="Arrival Time" required>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="burst_time" class="form-control" placeholder="Burst Time" required>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="priority" class="form-control" placeholder="Priority" required>
+                </div>
+                <!-- Move Remove button here, after Priority -->
+                <div class="col-md-2 d-flex align-items-center justify-content-end">
+                    <button type="button" class="btn btn-danger remove-task">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-4">
+            <button type="button" class="btn btn-secondary" id="addTask">Add Task</button>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-12 d-flex justify-content-center">
+                <div class="col-md-6">
+                    <select name="algorithm" class="form-select" id="algorithm" required>
+                        <option value="">Select Scheduling Algorithm</option>
+                        <option value="FCFS">First Come First Serve (FCFS)</option>
+                        <option value="SJF">Shortest Job First (SJF)</option>
+                        <option value="Priority">Priority Scheduling</option>
+                        <option value="RR">Round Robin (RR)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Add margin-bottom to give space between Select Algorithm and Time Quantum -->
+            <div class="col-md-6 mx-auto mt-4" id="timeQuantumField" style="display:none;">
+                <input type="number" name="time_quantum" class="form-control" placeholder="Time Quantum (for RR)">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Schedule</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script>
+    // JavaScript to toggle Time Quantum field visibility based on algorithm selection
+    document.getElementById('algorithm').addEventListener('change', function() {
+        var algorithm = this.value;
+        var timeQuantumField = document.getElementById('timeQuantumField');
+        
+        if (algorithm === 'RR') {
+            timeQuantumField.style.display = 'block';
+        } else {
+            timeQuantumField.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
