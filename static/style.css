@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+form .task {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+form .form-group {
+    margin: 20px 0;
+}
+
+input, select {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.gantt-chart {
+    margin-top: 30px;
+}
+
+.chart {
+    display: flex;
+    margin-top: 10px;
+}
+
+.gantt-task {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 4px;
+    min-width: 40px;
+}
+
+.back-btn {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+}
+.back-btn:hover {
+    text-decoration: underline;
+}
+#gantt-chart {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.gantt-block {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #333;
+    margin-right: 5px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.gantt-task {
+    font-weight: bold;
+}
+
+.gantt-time {
+    font-size: 12px;
+}
